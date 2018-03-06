@@ -1,0 +1,20 @@
+﻿@model Clinica.ViewModels.MedicoViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Adicionar Médico</h2>
+@using (Html.BeginForm("Create", "Medico"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nome)
+        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Especialidade)
+        @Html.TextBoxFor(m => m.Especialidade, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Adicionar</button>
+}
+
