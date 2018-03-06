@@ -199,10 +199,21 @@
     <Compile Include="Migrations\201803060923361_InitialModel.Designer.cs">
       <DependentUpon>201803060923361_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803061136013_CriacaoTabelas.cs" />
+    <Compile Include="Migrations\201803061136013_CriacaoTabelas.Designer.cs">
+      <DependentUpon>201803061136013_CriacaoTabelas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803061147088_OverrrideConventions.cs" />
+    <Compile Include="Migrations\201803061147088_OverrrideConventions.Designer.cs">
+      <DependentUpon>201803061147088_OverrrideConventions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Agendamento.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Medico.cs" />
+    <Compile Include="Models\Paciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -284,6 +295,12 @@
     <EmbeddedResource Include="Migrations\201803060923361_InitialModel.resx">
       <DependentUpon>201803060923361_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803061136013_CriacaoTabelas.resx">
+      <DependentUpon>201803061136013_CriacaoTabelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803061147088_OverrrideConventions.resx">
+      <DependentUpon>201803061147088_OverrrideConventions.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -299,7 +316,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>14722</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
