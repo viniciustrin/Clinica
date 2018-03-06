@@ -1,0 +1,32 @@
+﻿@model Clinica.ViewModels.AgendamentoViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Adicionar Consulta</h2>
+@using (Html.BeginForm("Create", "Agendamento"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Data)
+        @Html.TextBoxFor(m => m.Data, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Hora)
+        @Html.TextBoxFor(m => m.Hora, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Medico)
+        @Html.DropDownListFor(m => m.Medico, new SelectList(Model.Medicos, "Id", "Nome"), "", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Paciente)
+        @Html.DropDownListFor(m => m.Paciente, new SelectList(Model.Pacientes, "Id", "Nome"), "", new { @class = "form-control" })
+    </div>
+    <button class="btn btn-primary" type="submit">Agendar</button>
+}
+
+

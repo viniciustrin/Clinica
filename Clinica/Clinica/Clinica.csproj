@@ -190,9 +190,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AgendamentoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
+    <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,6 +214,10 @@
     <Compile Include="Migrations\201803061327018_CriacaoTabelaEspecialidades.Designer.cs">
       <DependentUpon>201803061327018_CriacaoTabelaEspecialidades.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803061757324_RefatorandoTabelas.cs" />
+    <Compile Include="Migrations\201803061757324_RefatorandoTabelas.Designer.cs">
+      <DependentUpon>201803061757324_RefatorandoTabelas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agendamento.cs" />
@@ -222,7 +228,9 @@
     <Compile Include="Models\Paciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AgendamentoViewModel.cs" />
     <Compile Include="ViewModels\MedicoViewModel.cs" />
+    <Compile Include="ViewModels\PacienteViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -282,6 +290,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Medico\Create.cshtml" />
+    <Content Include="Views\Paciente\Create.cshtml" />
+    <Content Include="Views\Agendamento\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -311,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803061327018_CriacaoTabelaEspecialidades.resx">
       <DependentUpon>201803061327018_CriacaoTabelaEspecialidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803061757324_RefatorandoTabelas.resx">
+      <DependentUpon>201803061757324_RefatorandoTabelas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
