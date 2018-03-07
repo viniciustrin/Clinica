@@ -32,10 +32,22 @@ namespace Clinica.Controllers
         [HttpPost]
         public ActionResult Create(AgendamentoViewModel vm)
         {
+            if (!ModelState.IsValid)
+            {
+                vm = new AgendamentoViewModel
+                {
+                    Medicos = _context.Medicos.ToList(),
+                    Pacientes = _context.Pacientes.ToList(),
+                    Data = DateTime.Now.ToShortDateString().ToString(),
+                    Hora = DateTime.Now.ToShortTimeString().ToString()
+                };
+                return View("Create", vm);
+            }
+
             var agenda = new Agendamento
             {
                 UsuarioId = User.Identity.GetUserId(),
-                Data = vm.DateTime,
+                Data = vm.DateTime(),
                 MedicoID = vm.Medico,
                 PacienteID = vm.Paciente
             };

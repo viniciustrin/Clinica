@@ -1,16 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Clinica.Models;
+using System;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Clinica.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
+        [Authorize]
         public ActionResult Index()
         {
-            return View();
+            var proximosAgendamentos = _context.Agendamentos
+                .Include(m => m.Usuario)
+                .Include(x => x.Medico)
+                .Include(y => y.Paciente)
+                .Where(d => d.Data > DateTime.Now );
+            return View(proximosAgendamentos);
         }
 
         public ActionResult About()
