@@ -21,7 +21,9 @@ namespace Clinica.Controllers
                 .Include(m => m.Usuario)
                 .Include(x => x.Medico)
                 .Include(y => y.Paciente)
-                .Where(d => d.Data > DateTime.Now );
+                .Where(d => d.Data > DateTime.Now && d.Cancelado == false);
+
+            ViewBag.Autenticado = User.Identity.IsAuthenticated;
             return View(proximosAgendamentos);
         }
 

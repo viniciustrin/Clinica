@@ -9,5 +9,6 @@ namespace Clinica.Models
         public string Nome { get; set; }
         [Required]
         public string Especialidade { get; set; }
+        public bool Deletado { get; set; }
     }
 }

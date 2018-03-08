@@ -4,13 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Adicionar Consulta</h2>
-@using (Html.BeginForm("Create", "Agendamento"))
+<h2>@Model.Heading</h2>
+@using (Html.BeginForm(Model.Action, "Agendamento"))
 {
+    @Html.HiddenFor(m => m.Id)
     <div class="form-group">
         @Html.LabelFor(m => m.Data)
-        @Html.TextBoxFor(m => m.Data, new { @class = "form-control", autofocus="autofocus" })
-         @Html.ValidationMessageFor(m => m.Data)
+        @Html.TextBoxFor(m => m.Data, new { @class = "form-control", autofocus = "autofocus" })
+        @Html.ValidationMessageFor(m => m.Data)
     </div>
 
     <div class="form-group">
@@ -30,7 +31,7 @@
         @Html.DropDownListFor(m => m.Paciente, new SelectList(Model.Pacientes, "Id", "Nome"), "", new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Paciente)
     </div>
-    <button class="btn btn-primary" type="submit">Agendar</button>
+    <button class="btn btn-primary" type="submit">@Model.Botao</button>
 }
 
 

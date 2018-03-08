@@ -7,6 +7,7 @@ namespace Clinica.ViewModels
 {
     public class AgendamentoViewModel
     {
+        public int Id { get; set; }
         public ApplicationUser Usuario { get; set; }
         [Required]
         [FutureDate]
@@ -24,5 +25,14 @@ namespace Clinica.ViewModels
         [Required]
         public int Medico { get; set; }
         public IEnumerable<Medico> Medicos{ get; set; }
+        public string Heading { get; set; }
+        public string Botao { get; set; }
+        public string Action
+        {
+            get
+            {
+                return (Id != 0) ? "Update" : "Create";
+            }
+        }
     }
 }

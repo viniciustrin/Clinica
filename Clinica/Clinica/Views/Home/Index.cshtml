@@ -29,7 +29,37 @@
                 <span class="usuario">
                     Usuário: @agendamento.Usuario.Nome
                 </span>
+                <div class="actions">
+                    <a href="@Url.Action("Edit","Agendamento", new { id = agendamento.ID })">Editar</a> | <a href="#" class="js-cancel" data-id="@agendamento.ID">Cancelar</a>
+                </div>
             </div>
         </li>
     }
 </ul>
+
+@section scripts{
+    
+    <script>
+        $(document).ready(function () {
+            $(".js-cancel").click(function (e) {
+                var link = $(e.target);
+                if (confirm("Deseja mesmo cancelar?")) {
+                    $.ajax({
+                        url: "/api/Agendamento/" + link.attr("data-id"),
+                        method: "DELETE"
+                    }).done(function () {
+                        link.parents("li").fadeOut(function () {
+                            $(this).remove();
+                        });
+                    })
+                        .fail(function () {
+                            alert("Ocorreu um erro");
+                    });
+                }
+            });
+        });
+
+
+    </script>    
+    
+}

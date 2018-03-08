@@ -18,5 +18,6 @@ namespace Clinica.Models
         public Medico Medico { get; set; }
         [Required]
         public int MedicoID { get; set; }
+        public bool Cancelado { get; set; }
     }
 }
